@@ -1,73 +1,58 @@
-public class Main {
+import java.util.Scanner;
+
+class SnackAutomat {
 
     public static void main(String[] args) {
-        int amount = 200; // Example amount in cents
-        calculateChange(amount);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Geben Sie den amount des Snacks in Cent ein: ");
+        int preis = scanner.nextInt();
+
+        snackAutomat(preis);
     }
 
-    public static void calculateChange(int amount) {
-        int change = amount - 72; // Subtracting 72 cents
-        System.out.println("Change: " + change);
+    public static void snackAutomat(int preis) {
+        int wechselgeld = preis - 72; // 72ct abziehen
 
-        int num200 = 0, num100 = 0, num50 = 0, num20 = 0, num10 = 0, num5 = 0, num2 = 0, num1 = 0;
+        int rest = wechselgeld;
 
-        if (change >= 200) {
-            while (change >= 200) {
-                change -= 200;
-                num200++;
-            }
+        System.out.println("Ihr Wechselgeld:");
+        if (rest >= 200) {
+            int anzahl = rest / 200;
+            System.out.println("2C: " + anzahl);
+            rest -= anzahl * 200;
         }
-        if (change >= 100) {
-            while (change >= 100) {
-                change -= 100;
-                num100++;
-            }
+        if (rest >= 100) {
+            int anzahl = rest / 100;
+            System.out.println("1C: " + anzahl);
+            rest -= anzahl * 100;
         }
-        if (change >= 50) {
-            while (change >= 50) {
-                change -= 50;
-                num50++;
-            }
+        if (rest >= 50) {
+            int anzahl = rest / 50;
+            System.out.println("50ct: " + anzahl);
+            rest -= anzahl * 50;
         }
-        if (change >= 20) {
-            while (change >= 20) {
-                change -= 20;
-                num20++;
-            }
+        if (rest >= 20) {
+            int anzahl = rest / 20;
+            System.out.println("20ct: " + anzahl);
+            rest -= anzahl * 20;
         }
-        if (change >= 10) {
-            while (change >= 10) {
-                change -= 10;
-                num10++;
-            }
+        if (rest >= 10) {
+            int anzahl = rest / 10;
+            System.out.println("10ct: " + anzahl);
+            rest -= anzahl * 10;
         }
-        if (change >= 5) {
-            while (change >= 5) {
-                change -= 5;
-                num5++;
-            }
+        if (rest >= 5) {
+            int anzahl = rest / 5;
+            System.out.println("5ct: " + anzahl);
+            rest -= anzahl * 5;
         }
-        if (change >= 2) {
-            while (change >= 2) {
-                change -= 2;
-                num2++;
-            }
+        if (rest >= 2) {
+            int anzahl = rest / 2;
+            System.out.println("2ct: " + anzahl);
+            rest -= anzahl * 2;
         }
-        if (change >= 1) {
-            while (change >= 1) {
-                change -= 1;
-                num1++;
-            }
+        if (rest >= 1) {
+            System.out.println("1ct: " + rest);
         }
-
-        // Output the change
-        System.out.println("200 cent(s): " + num200);
-        System.out.println("100 cent(s): " + num100);
-        System.out.println("50 cent(s): " + num50);
-        System.out.println("20 cent(s): " + num20);
-        System.out.println("10 cent(s): " + num10);
-        System.out.println("5 cent(s): " + num5);
-        System.out.println("2 cent(s): " + num2);
-        System.out.println("1 cent(s): " + num1);
     }
 }
