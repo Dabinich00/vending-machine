@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+class SnackAutomat {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Geben Sie den amount des Snacks in Cent ein: ");
+        int preis = scanner.nextInt();
+
+        snackAutomat(preis);
+    }
+
+    public static void snackAutomat(int preis) {
+        int wechselgeld = preis - 72; // 72ct abziehen
+
+        int rest = wechselgeld;
+
+        System.out.println("Ihr Wechselgeld:");
+        if (rest >= 200) {
+            int anzahl = rest / 200;
+            System.out.println("2C: " + anzahl);
+            rest -= anzahl * 200;
+        }
+        if (rest >= 100) {
+            int anzahl = rest / 100;
+            System.out.println("1C: " + anzahl);
+            rest -= anzahl * 100;
+        }
+        if (rest >= 50) {
+            int anzahl = rest / 50;
+            System.out.println("50ct: " + anzahl);
+            rest -= anzahl * 50;
+        }
+        if (rest >= 20) {
+            int anzahl = rest / 20;
+            System.out.println("20ct: " + anzahl);
+            rest -= anzahl * 20;
+        }
+        if (rest >= 10) {
+            int anzahl = rest / 10;
+            System.out.println("10ct: " + anzahl);
+            rest -= anzahl * 10;
+        }
+        if (rest >= 5) {
+            int anzahl = rest / 5;
+            System.out.println("5ct: " + anzahl);
+            rest -= anzahl * 5;
+        }
+        if (rest >= 2) {
+            int anzahl = rest / 2;
+            System.out.println("2ct: " + anzahl);
+            rest -= anzahl * 2;
+        }
+        if (rest >= 1) {
+            System.out.println("1ct: " + rest);
+        }
+    }
+}
